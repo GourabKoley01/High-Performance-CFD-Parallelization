@@ -33,8 +33,9 @@ The parallelized solver's accuracy was strictly validated against a 3D Lid-Drive
 
 ### Velocity Profiles
 <div align="center">
-  <img src="results/validation_u_profile.png" width="45%" alt="U-Velocity Validation">
-  <img src="results/validation_v_profile.png" width="45%" alt="V-Velocity Validation">
+  <img src="results/streamline_serial.png" width="45%" alt="streamline profile">
+  <img src="results/validation_u_profile_serial.png" width="45%" alt="U-Velocity Validation">
+  <img src="results/validation_v_profile_serial.png" width="45%" alt="V-Velocity Validation">
 </div>
 
 ### Flow Evolution & Contour Data
