@@ -1,0 +1,35 @@
+AllocateVar.o : AllocateVar.f90 mod_params.o 
+ApplyBC.o : ApplyBC.f90 mod_params.o mod_spmd.o 
+CommVars.o : CommVars.f90 mod_params.o mod_spmd.o 
+Communicate.o : Communicate.f90 mod_params.o mod_spmd.o 
+CommunicateAll.o : CommunicateAll.f90 mod_spmd.o mod_params.o 
+CompactFlux.o : CompactFlux.f90 mod_params.o nvtx.o 
+CompactScheme.o : CompactScheme.f90 nvtx.o mod_params.o 
+CompactVflux.o : CompactVflux.f90 mod_params.o 
+ConsToPrim.o : ConsToPrim.f90 mod_params.o 
+Filter.o : Filter.f90 mod_params.o nvtx.o 
+FirstVflux.o : FirstVflux.f90 mod_params.o 
+GetFlux.o : GetFlux.f90 mod_params.o nvtx.o 
+GridInput.o : GridInput.f90 mod_spmd.o mod_params.o 
+Initialize.o : Initialize.f90 mod_spmd.o mod_params.o 
+Main3D.o : Main3D.f90 nvtx.o mod_params.o mod_spmd.o 
+MultiblockGrid.o : MultiblockGrid.f90 mod_spmd.o mod_params.o 
+Output3D.o : Output3D.f90 mod_spmd.o mod_params.o 
+OutputMean3D.o : OutputMean3D.f90 mod_params.o mod_spmd.o 
+PrimToCons.o : PrimToCons.f90 mod_params.o 
+PrintHeader.o : PrintHeader.f90 mod_spmd.o mod_params.o 
+PrintScreen.o : PrintScreen.f90 mod_params.o mod_spmd.o 
+Recon.o : Recon.f90 mod_params.o 
+RoeFlux.o : RoeFlux.f90 mod_params.o nvtx.o 
+SecondVflux.o : SecondVflux.f90 mod_params.o nvtx.o 
+SetProbe.o : SetProbe.f90 mod_params.o mod_spmd.o 
+SplitGrid.o : SplitGrid.f90 mod_spmd.o mod_params.o 
+ThomasAlg.o : ThomasAlg.f90 mod_params.o 
+UserInputs.o : UserInputs.f90 mod_params.o 
+iterate.o : iterate.f90 mod_spmd.o mod_params.o nvtx.o 
+metric3d.o : metric3d.f90 mod_params.o 
+mod_params.o : mod_params.f90  
+mod_spmd.o : mod_spmd.f90 mod_params.o 
+nvtx.o : nvtx.f90  
+roe3D.o : roe3D.f90 mod_params.o nvtx.o 
+sutherland.o : sutherland.f90 mod_params.o 

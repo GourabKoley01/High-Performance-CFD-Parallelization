@@ -1,0 +1,157 @@
+subroutine ApplyBC
+  use mod_params
+  use mod_spmd
+  implicit none
+  integer:: i,j,k
+  real(kind=8) :: aval, velnor, xnor, ynor, mag
+  !real(kind=8) :: uprof(133)
+  !character(len=80)::filename
+
+  !!!!!YET TO PUT MULTIBLOCK 3D
+  !if(nblnks .gt. 0) call MultiblockBC
+
+
+!FOR LDC all walls as of now
+!LEFT
+  if(pleft .lt. 0)then
+    prim(1,:,:,1) = prim(2,:,:,1)
+    prim(1,:,:,5) = prim(2,:,:,5)
+    prim(1,:,:,2) = 0.0
+    prim(1,:,:,3) = 0.0
+    prim(1,:,:,4) = 0.0
+    do i = 1,1
+      do j = 1,ny
+        do k=1,nz
+          q(i,j,k,1) = prim(i,j,k,1)
+          q(i,j,k,2) = prim(i,j,k,2)*prim(i,j,k,1) 
+          q(i,j,k,3) = prim(i,j,k,3)*prim(i,j,k,1)
+          q(i,j,k,4) = prim(i,j,k,4)*prim(i,j,k,1)
+          q(i,j,k,5) = GAM1I * prim(i,j,k,5)  + 0.50d0*prim(i,j,k,1)*&
+            & (prim(i,j,k,2)**2+prim(i,j,k,3)**2+prim(i,j,k,4)**2)
+        enddo
+      enddo
+    enddo
+  endif
+
+!RIGHT
+  if(pright .lt. 0)then
+    prim(nx,:,:,1) = prim(nx-1,:,:,1)
+    prim(nx,:,:,5) = prim(nx-1,:,:,5)
+    prim(nx,:,:,2) = 0.0
+    prim(nx,:,:,3) = 0.0
+    prim(nx,:,:,4) = 0.0
+    do i = nx,nx
+      do j = 1,ny
+        do k=1,nz
+          q(i,j,k,1) = prim(i,j,k,1)
+          q(i,j,k,2) = prim(i,j,k,2)*prim(i,j,k,1) 
+          q(i,j,k,3) = prim(i,j,k,3)*prim(i,j,k,1)
+          q(i,j,k,4) = prim(i,j,k,4)*prim(i,j,k,1)
+          q(i,j,k,5) = GAM1I * prim(i,j,k,5)  + 0.50d0*prim(i,j,k,1)*&
+            & (prim(i,j,k,2)**2+prim(i,j,k,3)**2+prim(i,j,k,4)**2)
+        enddo
+      enddo
+    enddo
+  endif
+
+!NORTH
+  if(pabove .le. 0)then
+    
+    prim(:,ny,:,1) = prim(:,ny-1,:,1)
+    !prim(:,ny,:,2) = 0.0d0
+    !do k=1,nz
+    !  do i=1,nx
+        !prim(i,ny,k,2) = 16*x(i,ny,k)**2*(1-x(i,ny,k))**2
+      !enddo
+    !enddo
+    prim(:,ny,:,3) = 0.0d0
+    prim(:,ny,:,2) = prim(:,ny-1,:,2)
+    prim(:,ny,:,4) = prim(:,ny-1,:,4)
+    !prim(:,ny,:,3) = 0.0d0
+    prim(:,ny,:,5) = prim(:,ny-1,:,5)
+    do i = 1,nx
+      do j = ny,ny
+        do k=1,nz
+          q(i,j,k,1) = prim(i,j,k,1)
+          q(i,j,k,2) = prim(i,j,k,2)*prim(i,j,k,1) 
+          q(i,j,k,3) = prim(i,j,k,3)*prim(i,j,k,1)
+          q(i,j,k,4) = prim(i,j,k,4)*prim(i,j,k,1)
+          q(i,j,k,5) = GAM1I * prim(i,j,k,5)  + 0.50d0*prim(i,j,k,1)*&
+            & (prim(i,j,k,2)**2+prim(i,j,k,3)**2+prim(i,j,k,4)**2)
+        enddo
+      enddo
+    enddo
+  endif
+
+!SOUTH
+  if(pbelow .le. 0)then
+    
+    prim(:,1,:,1) = prim(:,2,:,1)
+    prim(:,1,:,2) = 0.0d0
+    prim(:,1,:,3) = 0.0d0
+    prim(:,1,:,4) = 0.0d0
+    prim(:,1,:,5) = prim(:,2,:,5)
+    do i = 1,nx
+      do j = 1,1
+        do k=1,nz
+          q(i,j,k,1) = prim(i,j,k,1)
+          q(i,j,k,2) = prim(i,j,k,2)*prim(i,j,k,1) 
+          q(i,j,k,3) = prim(i,j,k,3)*prim(i,j,k,1)
+          q(i,j,k,4) = prim(i,j,k,4)*prim(i,j,k,1)
+          q(i,j,k,5) = GAM1I * prim(i,j,k,5)  + 0.50d0*prim(i,j,k,1)*&
+            & (prim(i,j,k,2)**2+prim(i,j,k,3)**2+prim(i,j,k,4)**2)
+        enddo
+      enddo
+    enddo
+  endif
+
+!UP slip
+  if(pup .le. 0)then
+    
+    prim(:,:,nz,1) = prim(:,:,nz-1,1)
+    prim(:,:,nz,2) = prim(:,:,nz-1,2)
+    prim(:,:,nz,3) = prim(:,:,nz-1,3)
+    !prim(:,:,nz,4) = prim(:,:,nz-1,4)
+    !prim(:,:,nz,2) = 0.0d0
+    !prim(:,:,nz,3) = 0.0d0
+    prim(:,:,nz,4) = 0.0d0
+    prim(:,:,nz,5) = prim(:,:,nz-1,5)
+    do i = 1,nx
+      do j = 1,ny
+        do k=nz,nz
+          q(i,j,k,1) = prim(i,j,k,1)
+          q(i,j,k,2) = prim(i,j,k,2)*prim(i,j,k,1) 
+          q(i,j,k,3) = prim(i,j,k,3)*prim(i,j,k,1)
+          q(i,j,k,4) = prim(i,j,k,4)*prim(i,j,k,1)
+          q(i,j,k,5) = GAM1I * prim(i,j,k,5)  + 0.50d0*prim(i,j,k,1)*&
+            & (prim(i,j,k,2)**2+prim(i,j,k,3)**2+prim(i,j,k,4)**2)
+        enddo
+      enddo
+    enddo
+  endif
+
+  !DOWN
+  if(pdown .le. 0)then
+    
+    prim(:,:,1,1) = prim(:,:,2,1)
+    prim(:,:,1,2) = prim(:,:,2,2)
+    prim(:,:,1,3) = prim(:,:,2,3)
+    !prim(:,:,1,4) = prim(:,:,2,4)
+    !prim(:,:,1,2) = 0.0d0
+    !prim(:,:,1,3) = 0.0d0
+    prim(:,:,1,4) = 0.0d0
+    prim(:,:,1,5) = prim(:,:,2,5)
+    do i = 1,nx
+      do j = 1,ny
+        do k=1,1
+          q(i,j,k,1) = prim(i,j,k,1)
+          q(i,j,k,2) = prim(i,j,k,2)*prim(i,j,k,1) 
+          q(i,j,k,3) = prim(i,j,k,3)*prim(i,j,k,1)
+          q(i,j,k,4) = prim(i,j,k,4)*prim(i,j,k,1)
+          q(i,j,k,5) = GAM1I * prim(i,j,k,5)  + 0.50d0*prim(i,j,k,1)*&
+            & (prim(i,j,k,2)**2+prim(i,j,k,3)**2+prim(i,j,k,4)**2)
+        enddo
+      enddo
+    enddo
+  endif
+end subroutine ApplyBC

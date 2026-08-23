@@ -1,0 +1,49 @@
+subroutine ThomasAlg(nvartdg,ntdg,istart,iend)
+  use mod_params
+  implicit none
+
+  integer, intent(in)::nvartdg,ntdg
+  integer, intent(in)::istart,iend
+  integer :: i,j,k
+  real (kind =8), allocatable, dimension(:,:) :: gamtdg, betinv  
+
+  allocate(gamtdg(nmax,nmax)) 
+  allocate(betinv(nmax,nmax)) 
+  !!Solve TDG system with Thomas Algorithm
+  do i=istart,iend
+    betinv(i,1) = 1.0/btdg(i,1)
+  enddo
+
+  do k = 1,nvartdg
+    do i=istart,iend
+      tdg(i,1,k) = rhstdg(i,1,k)*betinv(i,1)
+    enddo
+  enddo
+
+
+  !!Forward Substitution
+  do j = 2,ntdg
+    do i=istart,iend
+      gamtdg(i,j) = ctdg(i,j-1)*betinv(i,j-1) 
+      betinv(i,j) = 1.0/(btdg(i,j)-atdg(i,j)*gamtdg(i,j)) 
+    enddo
+    do k = 1, nvartdg
+      do i=istart,iend
+        tdg(i,j,k) = (rhstdg(i,j,k) - atdg(i,j)*tdg(i,j-1,k))*betinv(i,j)
+      enddo
+    enddo
+  enddo
+
+  !!Inverse Substitution
+  do j=ntdg-1,1,-1
+    do k=1,nvartdg
+      do i=istart,iend
+        tdg(i,j,k) = tdg(i,j,k) - gamtdg(i,j+1)*tdg(i,j+1,k)
+      enddo
+    enddo
+  enddo
+
+  deallocate(gamtdg) 
+  deallocate(betinv) 
+  return
+end subroutine ThomasAlg

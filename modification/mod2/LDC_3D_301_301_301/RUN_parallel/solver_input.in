@@ -1,0 +1,25 @@
+1		Solver: 0=Dim, 1=Non-dim
+'../GRID3D/LDC_3d_301_301_301.xyz'       grdFile:      	String, File name of grid for current case
+2100.0d0          Re:           	Double, Reynolds number per unit length
+0.20d0          Ma:           	Double, Freestream Mach number
+300.0d0          Tref:           	Double, Freestream Temp (dimensional)
+1e-4           dt:           	Double, Nodimensional time step
+0               Itr start:    	Integer, Option for restarting code from previous solution (0=Fresh #=Iter No.)
+100	        nitr:         	Integer, Number of iterations to calculate in current run
+2000	        movie_fre:    	Integer, freq of movie files:       Integer, Number of iterations to calculate in current run
+10	        iprint_fre:    	Integer, freq of screen       Integer, Number of iterations to calculate in current run
+0 0 0              i,j,kPeriodicBC:  	Integer, Option for periodic bc in i-direction (0-No,1-Yes)
+2              metricScheme: 	Integer, 2=Second 10=Compact
+2               fluxScheme:   	Integer, 2=Roe 10=Compact
+6               CompactfluxOrder:    Integer, Order for Compact Scheme
+8               CompactfiltOrder:    Integer, Should be 2 higher than Compact Order
+0.450d0         filtCoeff:    	Double,  Filter Coefficient  
+3               RoefluxRecon:   Integer, Order for Compact Scheme
+2               vscsScheme:   	Integer, 0=Off 1=first 2=Second 10=Compact 
+3               timeScheme:   	Integer, 3=Third-order RK 4=RK4 
+0               iMean:   	Integer, 0=Off,1=on 
+0               ifDebug:   	Integer, 0=Off,1=on 
+3 16 50000		kClip, KPlane, movie2d_freq
+0               nblocks:   	Integer, 0=None,#=No. of blocked regions 
+1 61 1 81 1 11       block 1:        Integers, 1 nx 1 ny 
+341 415 1 81 1 11   block 2:        Integers, 1 nx 1 ny 

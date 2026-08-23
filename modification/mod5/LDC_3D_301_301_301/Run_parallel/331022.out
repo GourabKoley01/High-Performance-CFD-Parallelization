@@ -1,0 +1,118 @@
+profiling now
+ nx,ny,nz=          301          301          301
+ xmax,ymax,zmax=    1.000000000000000         1.000000000000000      
+    1.000000000000000     
+ xmin,ymin,zmin=    0.000000000000000         0.000000000000000      
+    0.000000000000000     
+            2            1            1            2
+            0
+            0
+ ------------------------------------------------------------
+ myrank =             1 nx,ny =           156          301 nprobes =  
+            0
+ global=          151          301            1          301
+ local =            6          156            1          301
+ ------------------------------------------------------------
+ myrank =             0 nx,ny =           155          301 nprobes =  
+            0
+ global=            1          150            1          301
+ local =            1          150            1          301
+ movsp_0000000.fn                                            written
+                                
+          100
+ !!!!!! ITERATION BEGINS HERE !!!!!!
+                                
+ itr     time     min(u)    min(p)  norm(rhs)
+      0     0.0000000     0.0000000    17.8571429   -16.0000000
+     10     0.0010000    -0.0001168    17.8043996     2.2427517
+     20     0.0020000    -0.0022551    17.7065071     2.3872864
+     30     0.0030000    -0.0073774    17.6371177     2.4039743
+     40     0.0040000    -0.0126802    17.5938820     2.4027861
+     50     0.0050000    -0.0187741    17.5647489     2.3988422
+     60     0.0060000    -0.0233782    17.5446343     2.3936292
+     70     0.0070000    -0.0270463    17.5309236     2.3897692
+     80     0.0080000    -0.0301299    17.5210078     2.3858978
+     90     0.0090000    -0.0326768    17.5137315     2.3826684
+    100     0.0100000    -0.0350457    17.5086074     2.3798201
+  
+ Iteration time =     50.66374     seconds
+Collecting data...
+Generating '/tmp/nsys-report-1fe5.qdstrm'
+[1/1] [0%                          ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [0%                          ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [8%                          ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [12%                         ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [=16%                        ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [==20%                       ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [===24%                      ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [====28%                     ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [=====30%                    ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [======34%                   ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [=======38%                  ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [=======39%                  ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [=========43%                ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [==========47%               ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [==========48%               ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [===========52%              ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [============56%             ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [=============58%            ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [==============61%           ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [==============62%           ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [==============63%           ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [==============64%           ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [===============65%          ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [===============66%          ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [===============67%          ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [================68%         ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [================69%         ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [================70%         ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [================71%         ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [=================72%        ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [=================73%        ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [=================74%        ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [==================75%       ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [==================76%       ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [==================77%       ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [==================78%       ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [===================79%      ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [===================80%      ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [===================81%      ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [===================82%      ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [====================83%     ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [====================84%     ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [====================85%     ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [=====================86%    ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [=====================87%    ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [=====================88%    ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [=====================89%    ] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [========================100%] gpu_profile_VYOM3D_mod5.nsys-rep[1/1] [========================100%] gpu_profile_VYOM3D_mod5.nsys-rep
+Generated:
+    /scratch/cfdhackteam01/Gourab/mod5/LDC_3D_301_301_301/RUN_parallel/gpu_profile_VYOM3D_mod5.nsys-rep
+Generating SQLite file gpu_profile_VYOM3D_mod5.sqlite from gpu_profile_VYOM3D_mod5.nsys-rep
+Processing [gpu_profile_VYOM3D_mod5.sqlite] with [/home/apps/spack/opt/spack/linux-almalinux8-skylake_avx512/gcc-8.5.0/nvhpc-24.11-bphfxrlohbqt7qd5igbuvb7va2ve6znl/Linux_x86_64/24.11/profilers/Nsight_Systems/host-linux-x64/reports/cuda_gpu_kern_sum.py]... 
+
+ ** CUDA GPU Kernel Summary (cuda_gpu_kern_sum):
+
+ Time (%)  Total Time (ns)  Instances   Avg (ns)     Med (ns)    Min (ns)   Max (ns)   StdDev (ns)              Name             
+ --------  ---------------  ---------  -----------  -----------  ---------  ---------  -----------  -----------------------------
+     16.3    3,622,271,515        600  6,037,119.2  6,464,955.0  5,570,376  6,751,343    440,169.3  etroe_267_gpu                
+     16.2    3,613,911,195        600  6,023,185.3  6,451,547.5  5,556,938  6,737,679    439,559.0  ztroe_500_gpu                
+     14.9    3,322,833,065        600  5,538,055.1  5,527,687.5  5,487,585  6,705,807    109,100.4  xiroe_28_gpu                 
+      6.0    1,331,812,015        600  2,219,686.7  2,219,210.5  2,197,849  2,361,329     13,010.8  recon_92_gpu                 
+      6.0    1,331,783,098        600  2,219,638.5  2,217,578.0  2,204,944  2,376,529     13,901.3  recon_151_gpu                
+      5.7    1,268,526,034        600  2,114,210.1  2,114,687.0  2,096,505  2,175,343      9,271.2  roeflux_59_gpu               
+      5.5    1,214,474,806        600  2,024,124.7  2,020,078.5  2,006,456  2,228,143     21,740.5  recon_34_gpu                 
+      3.7      814,135,310        600  1,356,892.2  1,356,540.5  1,349,392  1,365,002      3,297.6  iterate_42_gpu               
+      2.9      652,931,969        600  1,088,219.9  1,087,944.0  1,077,389  1,098,056      4,234.2  secondvflux_ztvsecond_198_gpu
+      2.9      649,737,278        600  1,082,895.5  1,082,791.0  1,071,757  1,092,424      4,440.7  secondvflux_etvsecond_144_gpu
+      2.9      641,821,655        600  1,069,702.8  1,069,804.5  1,059,788  1,079,912      4,346.2  secondvflux_xivsecond_90_gpu 
+      2.6      577,461,897        600    962,436.5    962,474.0    943,403    975,111      5,771.9  secondvflux_etvsecond_112_gpu
+      2.6      570,329,772        600    950,549.6    950,345.0    932,107    966,023      6,146.9  secondvflux_ztvsecond_166_gpu
+      2.5      561,257,935        600    935,429.9    934,566.5    926,187    951,943      5,442.7  roeflux_13_gpu               
+      2.5      549,247,055        600    915,411.8    915,880.5    909,899    920,551      3,187.1  secondvflux_xivsecond_58_gpu 
+      2.3      515,179,725        600    858,632.9    857,639.0    850,377    873,862      5,124.9  getflux_9_gpu                
+      1.9      418,095,906        600    696,826.5    697,254.5    690,312    704,101      4,171.6  constoprim_24_gpu            
+      1.0      221,669,322        200  1,108,346.6  1,106,778.5  1,100,525  1,118,760      6,201.4  iterate_12_gpu               
+      0.7      160,023,046        600    266,705.1    266,627.5    264,131    269,409      1,468.5  sutherland_10_gpu            
+      0.5      110,643,324        600    184,405.5    184,385.0    178,978    191,585      2,122.1  applybc_16_gpu               
+      0.4       93,777,652        600    156,296.1    156,577.0    151,266    162,018      2,416.6  recon_61_gpu                 
+      0.0        5,019,522        600      8,365.9      8,352.0      7,904      8,992        183.5  recon_119_gpu                
+      0.0        4,236,563        600      7,060.9      7,040.0      6,752      7,680        139.1  recon_178_gpu                
+
+Processing [gpu_profile_VYOM3D_mod5.sqlite] with [/home/apps/spack/opt/spack/linux-almalinux8-skylake_avx512/gcc-8.5.0/nvhpc-24.11-bphfxrlohbqt7qd5igbuvb7va2ve6znl/Linux_x86_64/24.11/profilers/Nsight_Systems/host-linux-x64/reports/mpi_event_sum.py]... 
+
+ ** MPI Event Summary (mpi_event_sum):
+
+ Time (%)  Total Time (ns)  Instances    Avg (ns)       Med (ns)      Min (ns)      Max (ns)      StdDev (ns)     Source         Name    
+ --------  ---------------  ---------  -------------  -------------  -----------  -------------  -------------  -----------  ------------
+     43.8    8,420,159,546      1,200    7,016,799.6    6,726,325.0    2,022,676    121,116,481    6,587,615.5  start-wait   MPI_Waitall 
+     22.9    4,403,894,570         29  151,858,433.4      627,312.0      222,351  2,693,457,076  534,479,166.1  p2p          MPI_Recv    
+     17.1    3,294,204,566         66   49,912,190.4        2,153.0          474  2,938,450,641  361,545,447.8  collectives  MPI_Reduce  
+      8.7    1,665,859,968          2  832,929,984.0  832,929,984.0  832,904,457    832,955,511       36,100.6  other        MPI_Init    
+      3.2      612,411,170          2  306,205,585.0  306,205,585.0  305,750,608    306,660,562      643,434.6  other        MPI_Finalize
+      2.7      516,473,618         29   17,809,435.1      474,476.0       28,159    267,997,933   58,212,976.2  p2p          MPI_Send    
+      1.4      262,537,142          8   32,817,142.8      116,366.0        7,502    260,860,252   92,143,830.3  collectives  MPI_Barrier 
+      0.2       45,489,870        600       75,816.4        7,746.5        5,971     20,408,328    1,161,600.3  p2p          MPI_Isend   
+      0.0        6,597,682        600       10,996.1        8,912.5        5,840         77,297       10,148.7  p2p          MPI_Irecv   
+      0.0        1,837,085      1,200        1,530.9          666.0           89         12,902        2,425.4  other        MPI_Waitall 
+
+Processing [gpu_profile_VYOM3D_mod5.sqlite] with [/home/apps/spack/opt/spack/linux-almalinux8-skylake_avx512/gcc-8.5.0/nvhpc-24.11-bphfxrlohbqt7qd5igbuvb7va2ve6znl/Linux_x86_64/24.11/profilers/Nsight_Systems/host-linux-x64/reports/nvtx_pushpop_sum.py]... 
+
+ ** NVTX Push/Pop Range Summary (nvtx_pushpop_sum):
+
+ Time (%)  Total Time (ns)  Instances    Avg (ns)       Med (ns)      Min (ns)     Max (ns)    StdDev (ns)        Range      
+ --------  ---------------  ---------  -------------  -------------  -----------  -----------  ------------  ----------------
+     40.7   93,603,696,198        200  468,018,481.0  465,579,932.0  462,405,051  621,016,641  11,966,327.5  :iterate        
+     30.9   71,108,428,458        600  118,514,047.4  118,270,221.5  115,663,083  257,359,132   6,052,898.0  :Comms prim     
+      9.1   20,876,321,444        600   34,793,869.1   35,499,028.5   33,836,427   38,629,139     845,382.9  :GetFlux        
+      7.2   16,481,338,378        600   27,468,897.3   28,215,315.0   26,501,335   31,088,990     870,108.2  :RoeFlux        
+      2.2    4,987,805,534        600    8,313,009.2    8,719,818.5    7,832,933    9,177,091     438,289.9  :etroe          
+      2.2    4,979,067,453        600    8,298,445.8    8,712,648.0    7,815,225    9,173,357     438,910.2  :ztroe          
+      2.0    4,663,994,558        600    7,773,324.3    7,759,999.5    7,700,162    9,541,561     145,789.9  :xiroe          
+      1.7    3,870,197,778        600    6,450,329.6    6,454,659.5    6,405,633    6,896,167      33,884.9  :SecondVflux    
+      0.6    1,354,933,250        600    2,258,222.1    2,257,183.0    2,235,602    2,405,821      13,442.3  :recon(2)       
+      0.6    1,354,419,465        600    2,257,365.8    2,254,579.5    2,240,614    2,438,643      16,611.2  :recon(3)       
+      0.6    1,328,624,127        600    2,214,373.5    2,211,195.0    2,192,030    2,609,587      29,825.4  :recon(1)       
+      0.5    1,246,147,146        600    2,076,911.9    2,075,981.5    2,053,871    2,127,286       9,733.4  :etvsecond      
+      0.5    1,242,503,263        600    2,070,838.8    2,070,468.5    2,045,393    2,505,195      20,562.0  :ztvsecond      
+      0.5    1,210,668,633        600    2,017,781.1    2,019,744.5    2,003,096    2,128,431       9,963.4  :xivsecond      
+      0.4      822,618,513        600    1,371,030.9    1,370,913.0    1,362,230    1,385,613       3,733.6  :RK3 update cons
+      0.2      426,491,076        600      710,818.5      711,706.5      703,093      837,508       7,317.1  :ConstoPrim     
+      0.1      229,850,152        200    1,149,250.8    1,145,815.0    1,134,346    1,317,531      22,008.8  :Cons_init      
+      0.1      169,148,234        600      281,913.7      281,796.5      278,084      392,620       5,394.5  :sutherland     
+      0.1      134,666,077        600      224,443.5      224,143.5      211,850      339,483       8,535.0  :Apply_BC       
+
+profilling complete

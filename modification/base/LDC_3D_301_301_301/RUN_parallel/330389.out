@@ -1,0 +1,44 @@
+profiling now
+ nx,ny,nz=          301          301          301
+ xmax,ymax,zmax=    1.000000000000000         1.000000000000000      
+    1.000000000000000     
+ xmin,ymin,zmin=    0.000000000000000         0.000000000000000      
+    0.000000000000000     
+            2            1            1            2
+            0
+            0
+ ------------------------------------------------------------
+ myrank =             1 nx,ny =           156          301 nprobes =  
+            0
+ global=          151          301            1          301
+ local =            6          156            1          301
+ ------------------------------------------------------------
+ myrank =             0 nx,ny =           155          301 nprobes =  
+            0
+ global=            1          150            1          301
+ local =            1          150            1          301
+ movsp_0000000.fn                                            written
+                                
+          100
+ !!!!!! ITERATION BEGINS HERE !!!!!!
+                                
+ itr     time     min(u)    min(p)  norm(rhs)
+      0     0.0000000     0.0000000    17.8571429   -16.0000000
+     10     0.0010000    -0.0001168    17.8043996     2.2427517
+     20     0.0020000    -0.0022551    17.7065071     2.3872864
+     30     0.0030000    -0.0073774    17.6371177     2.4039743
+     40     0.0040000    -0.0126802    17.5938820     2.4027861
+     50     0.0050000    -0.0187741    17.5647489     2.3988422
+     60     0.0060000    -0.0233782    17.5446343     2.3936292
+     70     0.0070000    -0.0270463    17.5309236     2.3897692
+     80     0.0080000    -0.0301299    17.5210078     2.3858978
+     90     0.0090000    -0.0326768    17.5137315     2.3826684
+    100     0.0100000    -0.0350457    17.5086074     2.3798201
+  
+ Iteration time =     117.2534     seconds
+Collecting data...
+Generating '/tmp/nsys-report-944d.qdstrm'
+[1/1] [0%                          ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [0%                          ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [6%                          ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [8%                          ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [9%                          ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [12%                         ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [14%                         ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=17%                        ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [==20%                       ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [===23%                      ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [===24%                      ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [====27%                     ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [====28%                     ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=====31%                    ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [======34%                   ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [======35%                   ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=======38%                  ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [========40%                 ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=========43%                ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=========45%                ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [==========47%               ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [===========50%              ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [===========52%              ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [============55%             ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [============56%             ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [============57%             ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=============58%            ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=============59%            ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=============60%            ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [==============61%           ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [==============62%           ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [==============63%           ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [==============64%           ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [===============65%          ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [===============66%          ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [===============67%          ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [================68%         ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [================69%         ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [================70%         ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [================71%         ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=================72%        ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=================73%        ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=================74%        ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [==================75%       ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [==================76%       ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [==================77%       ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [==================78%       ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [===================79%      ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [===================80%      ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [===================81%      ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [===================82%      ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [====================83%     ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [====================84%     ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [====================85%     ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=====================86%    ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=====================87%    ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=====================88%    ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [=====================89%    ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [======================90%   ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [======================91%   ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [======================92%   ] gpu_profile_VYOM3D_base.nsys-rep[1/1] [========================100%] gpu_profile_VYOM3D_base.nsys-rep[1/1] [========================100%] gpu_profile_VYOM3D_base.nsys-rep
+Generated:
+    /scratch/cfdhackteam01/Gourab/base/LDC_3D_301_301_301/RUN_parallel/gpu_profile_VYOM3D_base.nsys-rep
+profilling complete

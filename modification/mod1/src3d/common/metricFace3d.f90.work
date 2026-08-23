@@ -1,0 +1,112 @@
+subroutine metricFace3d
+  use mod_params
+  implicit none
+   double precision :: dp1,dp2,dp3,dp4,dp5,dp6,dp7,dp8,dp9
+   !Calculates grid metrics between nodes, at cell faces for flux calculations, by
+   !averaging the partials of adjacent nodes in one direction at a time. Metrics 
+   !calculated same as sub_grid_metrics. Also calculates normalized metrics for 
+   !each direction.
+   
+   do i=1,nx-1
+      do j=1,ny-1
+         do k=1,nz-1
+            !Average partials in i-direction
+            dp1=(x_i(i,j,k)+x_i(i+1,j,k))*0.50d0
+            dp2=(x_j(i,j,k)+x_j(i+1,j,k))*0.50d0
+            dp3=(x_k(i,j,k)+x_k(i+1,j,k))*0.50d0
+            dp4=(y_i(i,j,k)+y_i(i+1,j,k))*0.50d0          
+            dp5=(y_j(i,j,k)+y_j(i+1,j,k))*0.50d0          
+            dp6=(y_k(i,j,k)+y_k(i+1,j,k))*0.50d0          
+            dp7=(z_i(i,j,k)+z_i(i+1,j,k))*0.50d0
+            dp8=(z_j(i,j,k)+z_j(i+1,j,k))*0.50d0
+            dp9=(z_k(i,j,k)+z_k(i+1,j,k))*0.50d0
+
+            !Calculate Jacobian and grid metrics at faces in the i-direction 
+            !using Cramers' rule
+            jacFaceI(i,j,k) = 1.0d0/(dp1*(dp5*dp9-dp6*dp8)+&
+               &dp2*(dp6*dp7-dp4*dp9)+dp3*(dp4*dp8-dp5*dp7))
+            i_xFaceI(i,j,k)=(dp5*dp9-dp6*dp8)*jacFaceI(i,j,k) 
+            i_yFaceI(i,j,k)=-(dp2*dp9-dp3*dp8)*jacFaceI(i,j,k)
+            i_zFaceI(i,j,k)=(dp2*dp6-dp3*dp5)*jacFaceI(i,j,k)
+            j_xFaceI(i,j,k)=-(dp4*dp9-dp6*dp7)*jacFaceI(i,j,k)
+            j_yFaceI(i,j,k)=(dp1*dp9-dp3*dp7)*jacFaceI(i,j,k)
+            j_zFaceI(i,j,k)=-(dp1*dp6-dp3*dp4)*jacFaceI(i,j,k)
+            k_xFaceI(i,j,k)=(dp4*dp8-dp5*dp7)*jacFaceI(i,j,k)
+            k_yFaceI(i,j,k)=-(dp1*dp8-dp2*dp7)*jacFaceI(i,j,k)
+            k_zFaceI(i,j,k)=(dp1*dp5-dp2*dp4)*jacFaceI(i,j,k)
+
+            !Normalize select grid metrics in i-direction
+            magFaceI(i,j,k)=SQRT(i_xFaceI(i,j,k)**2+&
+               &i_yFaceI(i,j,k)**2+i_zFaceI(i,j,k)**2)
+            i_xNormFaceI(i,j,k)=i_xFaceI(i,j,k)/magFaceI(i,j,k)
+            i_yNormFaceI(i,j,k)=i_yFaceI(i,j,k)/magFaceI(i,j,k)
+            i_zNormFaceI(i,j,k)=i_zFaceI(i,j,k)/magFaceI(i,j,k)
+
+            !Average partials in j-direction
+            dp1=(x_i(i,j,k)+x_i(i,j+1,k))*0.50d0
+            dp2=(x_j(i,j,k)+x_j(i,j+1,k))*0.50d0
+            dp3=(x_k(i,j,k)+x_k(i,j+1,k))*0.50d0
+            dp4=(y_i(i,j,k)+y_i(i,j+1,k))*0.50d0          
+            dp5=(y_j(i,j,k)+y_j(i,j+1,k))*0.50d0          
+            dp6=(y_k(i,j,k)+y_k(i,j+1,k))*0.50d0          
+            dp7=(z_i(i,j,k)+z_i(i,j+1,k))*0.50d0
+            dp8=(z_j(i,j,k)+z_j(i,j+1,k))*0.50d0
+            dp9=(z_k(i,j,k)+z_k(i,j+1,k))*0.50d0
+
+            !Calculate Jacobian and grid metrics at faces in the j-direction
+            !using Cramer's rule
+            jacFaceJ(i,j,k)=1.0d0/(dp1*(dp5*dp9-dp6*dp8)+&
+               &dp2*(dp6*dp7-dp4*dp9)+dp3*(dp4*dp8-dp5*dp7))
+            i_xFaceJ(i,j,k)=(dp5*dp9-dp6*dp8)*jacFaceJ(i,j,k)
+            i_yFaceJ(i,j,k)=-(dp2*dp9-dp3*dp8)*jacFaceJ(i,j,k)
+            i_zFaceJ(i,j,k)=(dp2*dp6-dp3*dp5)*jacFaceJ(i,j,k)
+            j_xFaceJ(i,j,k)=-(dp4*dp9-dp6*dp7)*jacFaceJ(i,j,k)
+            j_yFaceJ(i,j,k)=(dp1*dp9-dp3*dp7)*jacFaceJ(i,j,k)
+            j_zFaceJ(i,j,k)=-(dp1*dp6-dp3*dp4)*jacFaceJ(i,j,k)
+            k_xFaceJ(i,j,k)=(dp4*dp8-dp5*dp7)*jacFaceJ(i,j,k)
+            k_yFaceJ(i,j,k)=-(dp1*dp8-dp2*dp7)*jacFaceJ(i,j,k)
+            k_zFaceJ(i,j,k)=(dp1*dp5-dp2*dp4)*jacFaceJ(i,j,k)
+
+            !Normalize select grid metrics in the j-direction
+            magFaceJ(i,j,k)=SQRT(j_xFaceJ(i,j,k)**2+&
+               &j_yFaceJ(i,j,k)**2+j_zFaceJ(i,j,k)**2)
+            j_xNormFaceJ(i,j,k)=j_xFaceJ(i,j,k)/magFaceJ(i,j,k)
+            j_yNormFaceJ(i,j,k)=j_yFaceJ(i,j,k)/magFaceJ(i,j,k)
+            j_zNormFaceJ(i,j,k)=j_zFaceJ(i,j,k)/magFaceJ(i,j,k)
+
+            !Average partials in the k-direction
+            dp1=(x_i(i,j,k)+x_i(i,j,k+1))*0.50d0
+            dp2=(x_j(i,j,k)+x_j(i,j,k+1))*0.50d0
+            dp3=(x_k(i,j,k)+x_k(i,j,k+1))*0.50d0
+            dp4=(y_i(i,j,k)+y_i(i,j,k+1))*0.50d0          
+            dp5=(y_j(i,j,k)+y_j(i,j,k+1))*0.50d0          
+            dp6=(y_k(i,j,k)+y_k(i,j,k+1))*0.50d0          
+            dp7=(z_i(i,j,k)+z_i(i,j,k+1))*0.50d0
+            dp8=(z_j(i,j,k)+z_j(i,j,k+1))*0.50d0
+            dp9=(z_k(i,j,k)+z_k(i,j,k+1))*0.50d0
+
+            !Calculate Jacobian and grid metrics at faces in the k-direction
+            !using Cramer's rule
+            jacFaceK(i,j,k)=1.0d0/(dp1*(dp5*dp9-dp6*dp8)+&
+               &dp2*(dp6*dp7-dp4*dp9)+dp3*(dp4*dp8-dp5*dp7))
+            i_xFaceK(i,j,k)=(dp5*dp9-dp6*dp8)*jacFaceK(i,j,k)
+            i_yFaceK(i,j,k)=-(dp2*dp9-dp3*dp8)*jacFaceK(i,j,k)
+            i_zFaceK(i,j,k)=(dp2*dp6-dp3*dp5)*jacFaceK(i,j,k)
+            j_xFaceK(i,j,k)=-(dp4*dp9-dp6*dp7)*jacFaceK(i,j,k)
+            j_yFaceK(i,j,k)=(dp1*dp9-dp3*dp7)*jacFaceK(i,j,k)
+            j_zFaceK(i,j,k)=-(dp1*dp6-dp3*dp4)*jacFaceK(i,j,k)
+            k_xFaceK(i,j,k)=(dp4*dp8-dp5*dp7)*jacFaceK(i,j,k)
+            k_yFaceK(i,j,k)=-(dp1*dp8-dp2*dp7)*jacFaceK(i,j,k)
+            k_zFaceK(i,j,k)=(dp1*dp5-dp2*dp4)*jacFaceK(i,j,k)
+
+            !Normalize select grid metrics in the k-direction
+            magFaceK(i,j,k)=SQRT(k_xFaceK(i,j,k)**2+&
+               &k_yFaceK(i,j,k)**2+k_zFaceK(i,j,k)**2)
+            k_xNormFaceK(i,j,k)=k_xFaceK(i,j,k)/magFaceK(i,j,k)
+            k_yNormFaceK(i,j,k)=k_yFaceK(i,j,k)/magFaceK(i,j,k)
+            k_zNormFaceK(i,j,k)=k_zFaceK(i,j,k)/magFaceK(i,j,k)
+         enddo
+      enddo
+   enddo
+end subroutine sub_gridMetricsFace3D
+end subroutine metricFace3d
